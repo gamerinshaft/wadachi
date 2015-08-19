@@ -1,5 +1,20 @@
 .wadachi.top
 .table
   .table-cell
-    .logo.center
+    .entry.center
+      .logo
+      .description
+        %h1
+          Get Your Track
+        = link_to user_omniauth_authorize_path(:github), class: "button" do
+          sign in
 .wadachi.bottom
+= image_tag("cloud--type01.png", class: "cloud cloud--type01")
+= image_tag("cloud--type02.png", class: "cloud cloud--type02")
+
+/ -if user_signed_in?
+/   = current_user
+/   = link_to "Sign out", destroy_user_session_path
+/ -else
+/   = link_to "Sign in with Github", user_omniauth_authorize_path(:github)
+

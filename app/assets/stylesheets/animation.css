@@ -1,0 +1,107 @@
+.cloud {
+  bottom: -3%;
+  position: fixed;
+  z-index: 0;
+}
+.cloud.cloud--type01 {
+  animation: cloud--type01 300s linear infinite;
+  -o-animation: cloud--type01 300s linear infinite;
+  -ms-animation: cloud--type01 300s linear infinite;
+  -moz-animation: cloud--type01 300s linear infinite;
+  -webkit-animation: cloud--type01 300s linear infinite;
+}
+.cloud.cloud--type02 {
+  animation: cloud--type02 240s linear infinite;
+  -o-animation: cloud--type02 240s linear infinite;
+  -ms-animation: cloud--type02 240s linear infinite;
+  -moz-animation: cloud--type02 240s linear infinite;
+  -webkit-animation: cloud--type02 240s linear infinite;
+}
+@-moz-keyframes cloud--type01 {
+  0% {
+    left: 100%;
+  }
+  50% {
+    left: -110%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@-webkit-keyframes cloud--type01 {
+  0% {
+    left: 100%;
+  }
+  50% {
+    left: -110%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@-o-keyframes cloud--type01 {
+  0% {
+    left: 100%;
+  }
+  50% {
+    left: -110%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@keyframes cloud--type01 {
+  0% {
+    left: 100%;
+  }
+  50% {
+    left: -110%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@-moz-keyframes cloud--type02 {
+  0% {
+    left: -120%;
+  }
+  50% {
+    left: 120%;
+  }
+  100% {
+    left: -120%;
+  }
+}
+@-webkit-keyframes cloud--type02 {
+  0% {
+    left: -120%;
+  }
+  50% {
+    left: 120%;
+  }
+  100% {
+    left: -120%;
+  }
+}
+@-o-keyframes cloud--type02 {
+  0% {
+    left: -120%;
+  }
+  50% {
+    left: 120%;
+  }
+  100% {
+    left: -120%;
+  }
+}
+@keyframes cloud--type02 {
+  0% {
+    left: -120%;
+  }
+  50% {
+    left: 120%;
+  }
+  100% {
+    left: -120%;
+  }
+}

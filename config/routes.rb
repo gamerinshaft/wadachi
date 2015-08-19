@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
   get 'landing/index'
 
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_scope :user do
+    get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
+
+  # Userログイン時
+  authenticated :user do
+    root :to => "user#index", :as => "user_authenticated_root"
+  end
+
+  # User非ログイン時
   root to: 'landing#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

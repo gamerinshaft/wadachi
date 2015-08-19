@@ -31,7 +31,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'devise'
 gem 'omniauth-github'
-gem 'figaro'
+gem "figaro", "~> 0.7.0"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 # User add
 gem 'haml-rails'
 gem 'react-rails'
+gem 'sprockets-coffee-react'
 gem 'erb2haml'
 gem 'devise'
 gem 'omniauth-github'

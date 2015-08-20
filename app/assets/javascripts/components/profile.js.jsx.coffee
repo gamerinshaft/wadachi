@@ -1,6 +1,7 @@
-var Profile = React.createClass({
+Profile = React.createClass
+  componentDidMount: ->
+    alert("hello")
+  render: ->
+    <h1>Hello</h1>
 
-  render: function() {
-    return <div />;
-  }
-});
+window.Profile = Profile

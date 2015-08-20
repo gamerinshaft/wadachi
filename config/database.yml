@@ -21,7 +21,7 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: postgresql
+  adapter: pg
   encoding: utf8
   database: wadachi_production
 # production:

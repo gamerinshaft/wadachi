@@ -1,0 +1,18 @@
+# Add application configuration variables here, as shown below.
+#
+# PUSHER_APP_ID: "2954"
+# PUSHER_KEY: 7381a978f7dd7f9a1117
+# PUSHER_SECRET: abdc3b896a0ffb85d373
+# STRIPE_API_KEY: EdAvEPVEC3LuaTg5Q3z6WbDVqZlcBQ8Z
+# STRIPE_PUBLIC_KEY: pk_BRgD57O8fHja9HxduJUszhef6jCyS
+
+production:
+  GITHUB_ID: a7d897c76186b09680ee
+  GITHUB_SECRET: c7475d2ef07ea2e3af736359a5d784513b6bf8bf
+  OAUTH2_REDIRECT: https://wadachi.herokuapp.com/
+
+development:
+  GITHUB_ID: cf78bd353f21f4fe5cef
+  GITHUB_SECRET: 5367ed2a59a0ba8cfb06f97d930b748955f80a9e
+  OAUTH2_REDIRECT: http://localhost:3000/
+

@@ -30,6 +30,7 @@ gem 'spring',        group: :development
 gem 'haml-rails'
 gem 'react-rails'
 gem 'sprockets-coffee-react'
+gem 'websocket-rails'
 gem 'erb2haml'
 gem 'devise'
 gem 'omniauth-github'

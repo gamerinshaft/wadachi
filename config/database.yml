@@ -21,9 +21,10 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: pg
-  encoding: utf8
-  database: db/wadachi_production
+  adapter: postgresql
+  database: wadachi_production
+  pool: 5
+  timeout: 5000
 # production:
 #   <<: *default
 #   database: db/production.sqlite3

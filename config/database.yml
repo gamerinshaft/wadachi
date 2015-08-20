@@ -23,7 +23,7 @@ test:
 production:
   adapter: pg
   encoding: utf8
-  database: wadachi_production
+  database: db/wadachi_production
 # production:
 #   <<: *default
 #   database: db/production.sqlite3

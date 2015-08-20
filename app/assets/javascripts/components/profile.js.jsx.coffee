@@ -3,7 +3,7 @@ Profile = React.createClass
     alert("hello")
     @websocket()
   websocket: ->
-    ws_rails = new WebSocketRails("localhost:3000/websocket");
+    ws_rails = new WebSocketRails(location.host + "/websocket");
     # メッセージ受信時の処理
     ws_rails.bind "websocket_profile", (message) ->
 

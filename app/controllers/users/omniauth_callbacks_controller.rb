@@ -1,5 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def github
+    Rails.logger.debug("---------\n#{request.env["omniauth.auth"][:credentials][:token]}\n-----------")
     @user = User.find_or_create_by(user_params)
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication
@@ -12,6 +13,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   private
   def user_params
-    request.env["omniauth.auth"].slice(:provider, :uid).to_h
+    params = request.env["omniauth.auth"].slice(:provider, :uid).to_h
+    params["github_token"] = request.env["omniauth.auth"][:credentials][:token]
+    params.to_h
   end
 end

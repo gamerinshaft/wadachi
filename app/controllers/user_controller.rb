@@ -1,8 +1,7 @@
 class UserController < ApplicationController
   def index
-    # 取得した複数のissuesのタイトルを表示
-    # issues.each do |i|
-    #   puts i["title"]
-    # end
+    @user = current_user
+    @client = Octokit::Client.new access_token: @user.github_token
+    @hoge = @client.user
   end
 end

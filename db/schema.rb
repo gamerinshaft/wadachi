@@ -29,6 +29,9 @@ ActiveRecord::Schema.define(version: 20150819105605) do
     t.string   "provider"
     t.string   "uid"
     t.string   "github_token"
+    t.string   "avatar_url"
+    t.string   "nickname"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

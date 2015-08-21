@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   namespace :api do
-  get 'profiles/index'
+    get 'profiles/index'
   end
 
   get 'landing/index'
+  get 'dashboard/index', :path => 'dashboard'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   devise_scope :user do
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
 
   # Userログイン時
   authenticated :user do
-    root :to => "user#index", :as => "user_authenticated_root"
+    root :to => "dashboard#index", :as => "user_authenticated_root"
   end
 
   # User非ログイン時

@@ -18,8 +18,6 @@
         = @user.login
       .detail__name
         Name:  #{@user.name}
-      .detail__email
-        Email: #{current_user.email}
 %section.main
   = react_component "Profile", { url: "/api/profiles", pollInterval: 2000 }, {prerender: true}
 

@@ -1,6 +1,5 @@
 Profile = React.createClass
   componentDidMount: ->
-    alert("hello")
     @websocket()
   websocket: ->
     ws_rails = new WebSocketRails(location.host + "/websocket");

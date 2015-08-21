@@ -18,29 +18,30 @@
   %header.row
     .user
       .user__icon
-        = image_tag("#{ @user.avatar_url}", class: "image")
+        = image_tag("#{current_user.avatar_url}", class: "image")
       .user__detail
         .detail__nickname
-          = @user.login
+          = @user.nickname
         .detail__name
           = @user.name
     .flex.flex-xs-auto
     = link_to destroy_user_session_path, class: "signout" do
       = fa_icon "power-off"
   .main
+    %h1 User一覧
     .row
-      .flex.flex-xs-16
+      - @users.each do |user|
+        .flex.flex-fluid-xs-33
+          .frame.z1
+            = user.inspect
+      .flex.flex-fluid-xs-33
         .frame.z1
-          .title
-            User情報
-          a
-      .flex.flex-xs-4
-        .frame.z1
-          a
+          %ul
+            - @repos.each do |repo|
+              %li
+                = repo.name
 
   = react_component "Profile", { url: "/api/profiles", pollInterval: 2000 }, {prerender: true}
-
-  = @user.name
 
   = @hoge.user.inspect
   -if user_signed_in?

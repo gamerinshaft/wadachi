@@ -38,6 +38,7 @@ gem 'omniauth-github'
 gem "octokit", "~> 4.0"
 gem "figaro", "~> 0.7.0"
 gem "font-awesome-rails"
+gem "kaminari"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

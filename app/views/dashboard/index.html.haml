@@ -1,6 +1,6 @@
 %aside.sidebar
-  .title
-    Wadachi
+  .logo
+    .img
   %ul
     %li.active
       Dashboard
@@ -10,6 +10,11 @@
       Event
     %li
       Map
+    %li
+      TimeLine
+    %li
+      Setting
+%section
   .user
     .user__icon
       = image_tag("#{ @user.avatar_url}", class: "image")
@@ -17,8 +22,18 @@
       .detail__nickname
         = @user.login
       .detail__name
-        Name:  #{@user.name}
-%section.main
+        = @user.name
+  .main
+    .row
+      .flex.flex-xs-16
+        .frame.z1
+          .title
+            User情報
+          a
+      .flex.flex-xs-4
+        .frame.z1
+          a
+
   = react_component "Profile", { url: "/api/profiles", pollInterval: 2000 }, {prerender: true}
 
   = @user.name

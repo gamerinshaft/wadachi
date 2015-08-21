@@ -1,4 +1,15 @@
 %aside.sidebar
+  .title
+    Wadachi
+  %ul
+    %li.active
+      Dashboard
+    %li
+      Message
+    %li
+      Event
+    %li
+      Map
   .user
     .user__icon
       = image_tag("#{ @user.avatar_url}", class: "image")
@@ -9,22 +20,22 @@
         Name:  #{@user.name}
       .detail__email
         Email: #{current_user.email}
+%section.main
+  = react_component "Profile", { url: "/api/profiles", pollInterval: 2000 }, {prerender: true}
 
-= react_component "Profile", { url: "/api/profiles", pollInterval: 2000 }, {prerender: true}
+  = @user.name
 
-= @user.name
+  = @hoge.user.inspect
+  -if user_signed_in?
+    = current_user
+    = link_to "Sign out", destroy_user_session_path
+  -else
+    = link_to "Sign in with Github", user_omniauth_authorize_path(:github)
 
-= @hoge.user.inspect
--if user_signed_in?
-  = current_user
-  = link_to "Sign out", destroy_user_session_path
--else
-  = link_to "Sign in with Github", user_omniauth_authorize_path(:github)
+  %input{id: "comment", type:"text"}
 
-%input{id: "comment", type:"text"}
+  %input{id: "send", type: "button", value: "send"}
 
-%input{id: "send", type: "button", value: "send"}
-
-%ul#chat_area
+  %ul#chat_area
 
 

@@ -29,6 +29,7 @@
       = fa_icon "power-off"
   .main
     %h1 User一覧
+    = page_entries_info @users
     .row
       - @users.each do |user|
         .flex.flex-fluid-xs-33
@@ -40,6 +41,7 @@
             - @repos.each do |repo|
               %li
                 = repo.name
+    = paginate @users
 
   = react_component "Profile", { url: "/api/profiles", pollInterval: 2000 }, {prerender: true}
 

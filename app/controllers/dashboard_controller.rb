@@ -5,6 +5,6 @@ class DashboardController < ApplicationController
     @repos = @client.repositories(current_user.nickname)
     @github = @client.user
     @user = current_user
-    @users = User.all
+    @users = User.page
   end
 end

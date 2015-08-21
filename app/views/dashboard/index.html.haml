@@ -1,19 +1,20 @@
-%aside.sidebar
-  .logo
-    .img
-  %ul
-    %li.active
-      = fa_icon "dashboard"
-    %li
-      = fa_icon "envelope-o"
-    %li
-      = fa_icon "flag"
-    %li
-      = fa_icon "map-marker"
-    %li
-      = fa_icon "newspaper-o"
-    %li
-      = fa_icon "gear"
+%aside.sidebar.scroll-wrap
+  .scroll
+    .logo
+      .img
+    %ul
+      %li.active
+        = fa_icon "dashboard"
+      %li
+        = fa_icon "envelope-o"
+      %li
+        = fa_icon "flag"
+      %li
+        = fa_icon "map-marker"
+      %li
+        = fa_icon "newspaper-o"
+      %li
+        = fa_icon "gear"
 %section
   %header.row
     .user
@@ -27,35 +28,36 @@
     .flex.flex-xs-auto
     = link_to destroy_user_session_path, class: "signout" do
       = fa_icon "power-off"
-  .main
-    %h1 User一覧
-    = page_entries_info @users
-    .row
-      - @users.each do |user|
+  .main.scroll-wrap
+    %section.scroll
+      %h1 User一覧
+      = page_entries_info @users
+      .row
+        - @users.each do |user|
+          .flex.flex-fluid-xs-33
+            .frame.z1
+              = user.inspect
         .flex.flex-fluid-xs-33
           .frame.z1
-            = user.inspect
-      .flex.flex-fluid-xs-33
-        .frame.z1
-          %ul
-            - @repos.each do |repo|
-              %li
-                = repo.name
-    = paginate @users
+            %ul
+              - @repos.each do |repo|
+                %li
+                  = repo.name
+      = paginate @users
 
-  = react_component "Profile", { url: "/api/profiles", pollInterval: 2000 }, {prerender: true}
+      = react_component "Profile", { url: "/api/profiles", pollInterval: 2000 }, {prerender: true}
 
-  = @hoge.user.inspect
-  -if user_signed_in?
-    = current_user
-    = link_to "Sign out", destroy_user_session_path
-  -else
-    = link_to "Sign in with Github", user_omniauth_authorize_path(:github)
+      = @hoge.user.inspect
+      -if user_signed_in?
+        = current_user
+        = link_to "Sign out", destroy_user_session_path
+      -else
+        = link_to "Sign in with Github", user_omniauth_authorize_path(:github)
 
-  %input{id: "comment", type:"text"}
+      %input{id: "comment", type:"text"}
 
-  %input{id: "send", type: "button", value: "send"}
+      %input{id: "send", type: "button", value: "send"}
 
-  %ul#chat_area
+      %ul#chat_area
 
 

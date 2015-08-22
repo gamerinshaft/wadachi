@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20150822020253) do
 
   create_table "profiles", force: true do |t|
-    t.text     "bio"
+    t.text     "bio",        default: "初めまして、よろしくお願いします。"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

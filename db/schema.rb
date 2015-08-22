@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822020059) do
+ActiveRecord::Schema.define(version: 20150822020253) do
 
   create_table "profiles", force: true do |t|
     t.text     "bio"
@@ -41,9 +41,11 @@ ActiveRecord::Schema.define(version: 20150822020059) do
     t.string   "avatar_url"
     t.string   "nickname"
     t.string   "name"
+    t.integer  "profile_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["profile_id"], name: "index_users_on_profile_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

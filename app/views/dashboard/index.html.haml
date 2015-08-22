@@ -4,17 +4,26 @@
       .img
     %ul
       %li.active
-        = fa_icon "dashboard"
+        = link_to destroy_user_session_path, class: "signout" do
+          = fa_icon "dashboard"
       %li
-        = fa_icon "envelope-o"
+        = link_to destroy_user_session_path, class: "signout" do
+          = fa_icon "envelope-o"
       %li
-        = fa_icon "flag"
+        = link_to destroy_user_session_path, class: "signout" do
+          = fa_icon "flag"
       %li
-        = fa_icon "map-marker"
+        = link_to destroy_user_session_path, class: "signout" do
+          = fa_icon "map-marker"
       %li
-        = fa_icon "newspaper-o"
+        = link_to destroy_user_session_path, class: "signout" do
+          = fa_icon "newspaper-o"
       %li
-        = fa_icon "gear"
+        = link_to destroy_user_session_path, class: "signout" do
+          = fa_icon "gear"
+      %li
+        = link_to destroy_user_session_path, class: "signout" do
+          = fa_icon "power-off"
 %section
   %header.row
     .user
@@ -26,8 +35,6 @@
         .detail__name
           = @user.name
     .flex.flex-xs-auto
-    = link_to destroy_user_session_path, class: "signout" do
-      = fa_icon "power-off"
   .main.scroll-wrap
     .scroll
       %section

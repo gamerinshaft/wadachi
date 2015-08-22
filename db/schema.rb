@@ -13,17 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150822160459) do
 
-  create_table "dashboards", force: true do |t|
-    t.integer  "user_id"
-    t.boolean  "is_users",   default: true
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "dashboards", ["user_id"], name: "index_dashboards_on_user_id"
-
   create_table "flags", force: true do |t|
     t.integer  "user_id"
+    t.boolean  "show_users", default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,15 +60,12 @@ ActiveRecord::Schema.define(version: 20150822160459) do
     t.string   "name"
     t.integer  "profile_id"
     t.integer  "notification_id"
-    t.integer  "dashboard_id"
     t.integer  "flag_id"
   end
 
-  add_index "users", ["dashboard_id"], name: "index_users_on_dashboard_id"
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["flag_id"], name: "index_users_on_flag_id"
   add_index "users", ["notification_id"], name: "index_users_on_notification_id"
   add_index "users", ["profile_id"], name: "index_users_on_profile_id"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["uid"], name: "index_users_on_uid", unique: true
 
 end

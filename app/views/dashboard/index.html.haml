@@ -38,6 +38,10 @@
   .main.scroll-wrap
     .scroll
       %section
+        .row
+          .flex.flex-fluid-xs-33
+            .frame.z1.setting
+              flagのセッティング
         - if @flag.show_users
           - @users.each do |user|
             = user.nickname

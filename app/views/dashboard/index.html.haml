@@ -39,8 +39,15 @@
     .scroll
       %section
         %h1 User一覧
+
         = page_entries_info @users
         .row
+          .flex.flex-fluid-xs-33
+            .frame.z1
+              %h1
+                Post
+              .content
+                コメントする
           - @users.each do |user|
             .flex.flex-fluid-xs-33
               .frame.z1

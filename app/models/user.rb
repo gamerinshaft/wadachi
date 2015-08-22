@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          # :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :trackable
   has_one :profile, dependent: :destroy
+  has_one :notification, dependent: :destroy
 end

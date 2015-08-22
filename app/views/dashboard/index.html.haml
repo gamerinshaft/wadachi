@@ -38,8 +38,10 @@
   .main.scroll-wrap
     .scroll
       %section
+        - if @flag.show_users
+          - @users.each do |user|
+            = user.nickname
         %h1 User一覧
-
         = page_entries_info @users
         .row
           .flex.flex-fluid-xs-33

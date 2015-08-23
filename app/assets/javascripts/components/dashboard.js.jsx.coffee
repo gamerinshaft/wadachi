@@ -29,10 +29,21 @@ UsersBox = React.createClass
     </div>
 # =============================================
 ProfileBox = React.createClass
+  getInitialState: -> image: @props.user.avatar_url, bio: @props.profile.bio
   componentDidMount: ->
-    console.log @props.user.avatar_url
+    console.log @props
   handleEdit: ->
-    $("#profileBox").toggleClass("edit")
+    if $("#profileBox").hasClass("edit")
+      $.ajax
+        url: @props.url
+        dataType: 'json'
+      .done (data) =>
+        @setState(data: data)
+      .fail (xhr, status, err) =>
+        console.error @props.url, status, err.toString()
+      $("#profileBox").removeClass("edit")
+    else
+      $("#profileBox").addClass("edit")
   render: ->
     <div id="profileBox" className="flex flex-xs-6">
       <div className="frame z1">
@@ -43,7 +54,7 @@ ProfileBox = React.createClass
           </div>
           <Center>
             <div className="image">
-              <img src={@props.user.avatar_url} />
+              <img src={@state.image} />
               <div className="mask">
                 <Center>
                   <i className="fa fa-camera"></i>
@@ -52,9 +63,9 @@ ProfileBox = React.createClass
             </div>
             <div className="content">
               <div className="bio">
-                {@props.profile.bio}
+                {@state.bio}
               </div>
-              <textarea>{@props.profile.bio}</textarea>
+              <textarea>{@state.bio}</textarea>
             </div>
           </Center>
         </div>

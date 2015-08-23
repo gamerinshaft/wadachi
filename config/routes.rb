@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   namespace :api do
+  get 'dashboards/index'
+  end
+
+  namespace :api do
     get 'profiles/index'
   end
 

@@ -1,3 +1,41 @@
+.profileBox
+  .header
+    height: 240px
+    background-color: rgb(69, 73, 84)
+    & > .row
+      height: 240px
+    img
+      width: 128px
+      height: 128px
+      border-radius: 50%
+      border: solid 4px rgb(27, 32, 38)
+  .footer
+    color: white
+    background-color: rgb(34, 37, 43)
+    .data
+      position: relative
+      padding: 8px
+      &:after
+        position: absolute
+        content: ""
+        width: 100%
+        top: 0px
+        left: 0px
+        height: 4px
+      &.posts:after
+        background-color: rgb(38, 123, 162)
+      &.follows
+        border-right: 2px solid #111
+        border-left: 2px solid #111
+        &:after
+          background-color: rgb(104, 143, 16)
+      &.followers:after
+        background-color: rgb(163, 60, 24)
+      .name
+        color: #ddd
+        text-align: center
+      .value
+        text-align: center
 .dashboard.index
   background-color: #1E1E29
   aside.sidebar

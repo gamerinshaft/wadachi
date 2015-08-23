@@ -3,8 +3,8 @@
     .logo
       .img
     %ul
-      %li.active
-        = link_to destroy_user_session_path, class: "signout" do
+      %li
+        = link_to destroy_user_session_path, class: "active signout" do
           = fa_icon "dashboard"
       %li
         = link_to destroy_user_session_path, class: "signout" do
@@ -38,13 +38,11 @@
   .main.scroll-wrap
     .scroll
       %section
+        = react_component "Dashboard", { url: "/api/dashboards", user: @user, profile: @user.profile, flag: @flag, notification: @user.notification, pollInterval: 2000 }, {prerender: true}
         .row
           .flex.flex-fluid-xs-33
             .frame.z1.setting
               flagのセッティング
-        - if @flag.show_users
-          - @users.each do |user|
-            = user.nickname
         %h1 User一覧
         = page_entries_info @users
         .row
@@ -65,8 +63,6 @@
                   %li
                     = repo.name
         = paginate @users
-
-        = react_component "Profile", { url: "/api/profiles", pollInterval: 2000 }, {prerender: true}
 
         = @hoge.user.inspect
         -if user_signed_in?

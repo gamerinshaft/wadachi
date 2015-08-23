@@ -15,7 +15,8 @@ ActiveRecord::Schema.define(version: 20150822160459) do
 
   create_table "flags", force: true do |t|
     t.integer  "user_id"
-    t.boolean  "show_users", default: true
+    t.boolean  "show_users",   default: true
+    t.boolean  "show_profile", default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -18,7 +18,4 @@ class Api::UserController < ApplicationController
   end
 
   private
-  def create_params
-    params.require(:comment).permit(:author, :text)
-  end
 end

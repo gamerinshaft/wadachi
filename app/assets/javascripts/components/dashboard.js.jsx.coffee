@@ -1,10 +1,10 @@
 Dashboard = React.createClass
   componentDidMount: ->
-    console.log @props.profile
+    console.log "h"
   render: ->
     <div className="row">
       <If bool={@props.flag.show_profile}>
-        <ProfileBox user={@props.user} profile={@props.profile}/>
+        <ProfileBox user={@props.user} profile={@props.profile} url={"/api/users/" + @props.user.uid + "/profile"} />
       </If>
       <If bool={@props.flag.show_users}>
         <UsersBox />
@@ -31,12 +31,15 @@ UsersBox = React.createClass
 ProfileBox = React.createClass
   getInitialState: -> image: @props.user.avatar_url, bio: @props.profile.bio
   componentDidMount: ->
-    console.log @props
+    console.log @props.url
   handleEdit: ->
     if $("#profileBox").hasClass("edit")
+      console.log @state
       $.ajax
         url: @props.url
+        type: "PUT"
         dataType: 'json'
+        data: profile: @state
       .done (data) =>
         @setState(data: data)
       .fail (xhr, status, err) =>
@@ -44,6 +47,8 @@ ProfileBox = React.createClass
       $("#profileBox").removeClass("edit")
     else
       $("#profileBox").addClass("edit")
+  handleBioChange: (e)->
+    @setState(bio: e.target.value)
   render: ->
     <div id="profileBox" className="flex flex-xs-6">
       <div className="frame z1">
@@ -65,7 +70,7 @@ ProfileBox = React.createClass
               <div className="bio">
                 {@state.bio}
               </div>
-              <textarea>{@state.bio}</textarea>
+              <textarea defaultValue={@state.bio} onChange={@handleBioChange}></textarea>
             </div>
           </Center>
         </div>

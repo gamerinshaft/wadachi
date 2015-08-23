@@ -1,5 +1,25 @@
 Rails.application.routes.draw do
   namespace :api do
+  get 'user/index'
+  end
+
+  namespace :api do
+  get 'user/new'
+  end
+
+  namespace :api do
+  get 'user/create'
+  end
+
+  namespace :api do
+  get 'user/update'
+  end
+
+  namespace :api do
+  get 'user/destroy'
+  end
+
+  namespace :api do
   get 'dashboards/index'
   end
 

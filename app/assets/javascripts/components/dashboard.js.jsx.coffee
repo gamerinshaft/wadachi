@@ -4,7 +4,7 @@ Dashboard = React.createClass
   render: ->
     <div className="row">
       <If bool={@props.flag.show_profile}>
-        <ProfileBox user={@props.user}/>
+        <ProfileBox user={@props.user} profile={@props.profile}/>
       </If>
       <If bool={@props.flag.show_users}>
         <UsersBox />
@@ -27,22 +27,36 @@ UsersBox = React.createClass
         これはUsersBoxです。
       </div>
     </div>
+# =============================================
 ProfileBox = React.createClass
   componentDidMount: ->
     console.log @props.user.avatar_url
+  handleEdit: ->
+    $("#profileBox").toggleClass("edit")
   render: ->
-    <div className="profileBox flex flex-xs-6">
+    <div id="profileBox" className="flex flex-xs-6">
       <div className="frame z1">
         <div className="header">
-          <div className="row">
-            <div className="flex-xs-auto"></div>
-              <div className="column">
-                <div className="flex-xs-auto"></div>
-                <img src={@props.user.avatar_url} />
-                <div className="flex-xs-auto"></div>
-              </div>
-            <div className="flex-xs-auto"></div>
+          <div className="edit" onClick={ @handleEdit }>
+            <i className="fa fa-gear"></i>
+            <i className="fa fa-times"></i>
           </div>
+          <Center>
+            <div className="image">
+              <img src={@props.user.avatar_url} />
+              <div className="mask">
+                <Center>
+                  <i className="fa fa-camera"></i>
+                </Center>
+              </div>
+            </div>
+            <div className="content">
+              <div className="bio">
+                {@props.profile.bio}
+              </div>
+              <textarea>{@props.profile.bio}</textarea>
+            </div>
+          </Center>
         </div>
         <div className="footer">
           <div className="row">
@@ -80,6 +94,20 @@ ProfileBox = React.createClass
         </div>
       </div>
     </div>
+# =============================================
+Center = React.createClass
+  render: ->
+    <div className="row max-h">
+      <div className="flex-xs-auto"></div>
+      <div className="column">
+        <div className="flex-xs-auto"></div>
+        {@props.children}
+        <div className="flex-xs-auto"></div>
+      </div>
+      <div className="flex-xs-auto"></div>
+    </div>
+
+# =============================================
 CommentBox = React.createClass
   render: ->
     <div className="commentBox">

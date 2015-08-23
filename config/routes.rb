@@ -1,34 +1,8 @@
 Rails.application.routes.draw do
   namespace :api do
-  get 'profile/index'
-  end
-
-  namespace :api do
-  get 'profile/new'
-  end
-
-  namespace :api do
-  get 'profile/create'
-  end
-
-  namespace :api do
-  get 'profile/update'
-  end
-
-  namespace :api do
-  get 'profile/show'
-  end
-
-  namespace :api do
-  get 'profile/edit'
-  end
-
-  namespace :api do
-  get 'profile/destroy'
-  end
-
-  namespace :api do
-    resources :users
+    resources :users do
+      resources :profile
+    end
     get 'dashboards/index'
     get 'profiles/index'
   end

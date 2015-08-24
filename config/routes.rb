@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  namespace :api do
+  namespace :api, constraints: { format: 'json' } do
     resources :users do
       resource :profile
     end

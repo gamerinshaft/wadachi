@@ -11,7 +11,7 @@ class Api::ProfilesController < ApplicationController
   def update
     @user = User.find(params[:user_id])
     @user.profile.update_attributes(create_params)
-    render json: @user.profile
+    @profile = @user.profile
   end
 
   def show

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.9'
+gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', :group => [:development, :test]
 gem 'pg', :group => [:production]
@@ -41,6 +41,23 @@ gem "font-awesome-rails"
 gem "kaminari"
 gem 'rails_12factor', group: :production
 
+group :test, :development do
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-byebug'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'tapp'
+  gem 'awesome_print'
+  gem 'quiet_assets'
+  gem 'annotate'
+  gem 'timecop'
+  gem 'rack-mini-profiler'
+  gem 'xray-rails'
+  gem 'rails-footnotes'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

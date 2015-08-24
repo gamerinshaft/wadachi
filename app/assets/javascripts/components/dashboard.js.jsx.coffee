@@ -1,6 +1,6 @@
 Dashboard = React.createClass
   componentDidMount: ->
-    console.log "h"
+    console.log "Dashboard"
   render: ->
     <div className="row">
       <If bool={@props.flag.show_profile}>
@@ -19,7 +19,7 @@ If = React.createClass
       false
 UsersBox = React.createClass
   componentDidMount: ->
-    console.log @refs
+    console.log "UsersBox"
   render: ->
     <div className="usersBox flex flex-xs-8">
       <div className="frame z1">
@@ -31,10 +31,8 @@ UsersBox = React.createClass
 ProfileBox = React.createClass
   getInitialState: -> image: @props.user.avatar_url, bio: @props.profile.bio
   componentDidMount: ->
-    console.log @props.url
   handleEdit: ->
     if $("#profileBox").hasClass("edit")
-      console.log @state
       $.ajax
         url: @props.url
         type: "PUT"

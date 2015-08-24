@@ -48,7 +48,7 @@ ProfileBox = React.createClass
     else
       $("#profileBox").addClass("edit")
   handleBioChange: (e)->
-    @setState(bio: e.target.value)
+    @setState(bio: e.target.value.replace(/\s+/g, ""))
   render: ->
     <div id="profileBox" className="flex flex-xs-6">
       <div className="frame z1">

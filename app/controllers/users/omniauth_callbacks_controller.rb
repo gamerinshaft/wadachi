@@ -1,6 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def github
-    Rails.logger.debug("-----------------\n#{uid}\n------------------")
     @user = User.find_or_initialize_by(uid)
     if @user.new_record?
       @user.update_attributes(user_params)

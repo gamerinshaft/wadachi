@@ -37,6 +37,7 @@
     .flex.flex-xs-auto
   .main.scroll-wrap
     .scroll
+      = @user.inspect
       %section
         = react_component "Dashboard", { url: "/api/dashboards", user: @user, profile: @user.profile, flag: @flag, notification: @user.notification, pollInterval: 2000 }, {prerender: true}
         .row

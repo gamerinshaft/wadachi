@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822160459) do
+ActiveRecord::Schema.define(version: 20150822160337) do
 
   create_table "flags", force: true do |t|
     t.integer  "user_id"
@@ -59,14 +59,8 @@ ActiveRecord::Schema.define(version: 20150822160459) do
     t.string   "avatar_url"
     t.string   "nickname"
     t.string   "name"
-    t.integer  "profile_id"
-    t.integer  "notification_id"
-    t.integer  "flag_id"
   end
 
-  add_index "users", ["flag_id"], name: "index_users_on_flag_id"
-  add_index "users", ["notification_id"], name: "index_users_on_notification_id"
-  add_index "users", ["profile_id"], name: "index_users_on_profile_id"
   add_index "users", ["uid"], name: "index_users_on_uid", unique: true
 
 end

@@ -5,7 +5,9 @@ class DashboardController < ApplicationController
     @repos = @client.repositories(current_user.nickname)
     @github = @client.user
     @user = current_user
+    Rails.logger.debug("⭐︎⭐︎⭐︎⭐︎⭐︎⭐︎⭐︎⭐︎⭐︎⭐︎⭐︎⭐︎#{current_user}⭐︎⭐︎⭐︎⭐︎⭐︎⭐︎⭐︎⭐︎⭐︎⭐︎⭐︎");
     @flag = @user.flag
     @users = User.page
   end
+
 end

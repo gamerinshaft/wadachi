@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
   has_one :notification, dependent: :destroy
   has_one :flag, dependent: :destroy
+
+  def filtered_hash
+    self.serializable_hash.except("github_token").symbolize_keys
+  end
 end

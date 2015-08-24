@@ -39,7 +39,7 @@
     .scroll
       = @user.inspect
       %section
-        = react_component "Dashboard", { url: "/api/dashboards", user: @user, profile: @user.profile, flag: @flag, notification: @user.notification, pollInterval: 2000 }, {prerender: true}
+        = react_component "Dashboard", { url: "/api/dashboards", user: @user.filtered_hash, profile: @user.profile, flag: @flag, notification: @user.notification, pollInterval: 2000 }, {prerender: true}
         .row
           .flex.flex-fluid-xs-33
             .frame.z1.setting

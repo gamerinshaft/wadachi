@@ -6,6 +6,7 @@ class DashboardController < ApplicationController
     @github = @client.user
     @user = current_user
     @flag = @user.flag
-    @users = User.page
+    filter = %i[name email uid avatar_url]
+    @users = User.select(filter).page
   end
 end

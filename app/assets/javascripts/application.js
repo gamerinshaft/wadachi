@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+////= require turbolinks
 //= require react
 //= require react_ujs
+//= require radium.min
 //= require components
 //= require websocket_rails/main
 //= require_tree .

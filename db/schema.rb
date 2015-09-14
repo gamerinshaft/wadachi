@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822160337) do
+ActiveRecord::Schema.define(version: 20150914064243) do
 
-  create_table "flags", force: true do |t|
+  create_table "flags", force: :cascade do |t|
     t.integer  "user_id"
     t.boolean  "show_users",   default: true
     t.boolean  "show_profile", default: true
@@ -23,7 +23,16 @@ ActiveRecord::Schema.define(version: 20150822160337) do
 
   add_index "flags", ["user_id"], name: "index_flags_on_user_id"
 
-  create_table "notifications", force: true do |t|
+  create_table "githubs", force: :cascade do |t|
+    t.string   "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "githubs", ["user_id"], name: "index_githubs_on_user_id"
+
+  create_table "notifications", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -31,7 +40,7 @@ ActiveRecord::Schema.define(version: 20150822160337) do
 
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
 
-  create_table "profiles", force: true do |t|
+  create_table "profiles", force: :cascade do |t|
     t.text     "bio",        default: "初めまして、よろしくお願いします。"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -40,25 +49,25 @@ ActiveRecord::Schema.define(version: 20150822160337) do
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "github_token"
-    t.string   "avatar_url"
-    t.string   "nickname"
-    t.string   "name"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "provider",               limit: 255
+    t.string   "uid",                    limit: 255
+    t.string   "github_token",           limit: 255
+    t.string   "avatar_url",             limit: 255
+    t.string   "nickname",               limit: 255
+    t.string   "name",                   limit: 255
   end
 
   add_index "users", ["uid"], name: "index_users_on_uid", unique: true

@@ -8,6 +8,20 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @user.github = Github.new(token)
       @user.notification = Notification.new()
       @user.save
+      @client = Octokit::Client.new access_token: @user.github_token
+      @repos = @client.repositories(@user.nickname)
+      @languages = {}
+      @repos.each do |repo|
+        @client.languages(repo.full_name).each do |lang, count|
+          if(@languages.key?(lang.to_sym))
+            @languages[lang.to_sym] += count
+          else
+            @languages[lang.to_sym] = count
+          end
+        end
+      end
+      params = @languages.map{|lang, count| {name: lang, count: count}}
+      @user.github.languages.create(params)
       session["devise.github_data"] = request.env["omniauth.auth"]
       sign_in_and_redirect @user, :event => :authentication
     else

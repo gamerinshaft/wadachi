@@ -5,6 +5,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @user.update_attributes(user_params)
       @user.profile = Profile.new()
       @user.flag = Flag.new()
+      @user.github = Github.new(token)
       @user.notification = Notification.new()
       @user.save
       session["devise.github_data"] = request.env["omniauth.auth"]
@@ -18,6 +19,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
   def uid
     params = request.env["omniauth.auth"].slice(:uid).to_h
+  end
+  def token
+    params = request.env["omniauth.auth"][:credentials].slice(:token).to_h
   end
   def user_params
     params = request.env["omniauth.auth"].slice(:provider, :uid).to_h

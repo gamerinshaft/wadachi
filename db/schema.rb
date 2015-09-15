@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914064243) do
+ActiveRecord::Schema.define(version: 20150915005724) do
 
   create_table "flags", force: :cascade do |t|
     t.integer  "user_id"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 20150914064243) do
   end
 
   add_index "githubs", ["user_id"], name: "index_githubs_on_user_id"
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "github_id"
+  end
+
+  add_index "languages", ["github_id"], name: "index_languages_on_github_id"
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "user_id"

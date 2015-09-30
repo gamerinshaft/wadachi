@@ -12,7 +12,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @repos = @client.repositories(@user.nickname)
       @languages = {}
       @repos.each do |repo|
-        binding.pry
+        @user.github.repositories.create(name: repo.name, private: repo.private, svn_url: repo.svn_url, size: repo.size, description: repo.description)
         @client.languages(repo.full_name).each do |lang, count|
           if(@languages.key?(lang.to_sym))
             @languages[lang.to_sym] += count

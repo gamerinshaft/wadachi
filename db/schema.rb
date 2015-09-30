@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930045407) do
+ActiveRecord::Schema.define(version: 20150930064007) do
 
   create_table "flags", force: :cascade do |t|
     t.integer  "user_id"
@@ -31,6 +31,12 @@ ActiveRecord::Schema.define(version: 20150930045407) do
   end
 
   add_index "githubs", ["user_id"], name: "index_githubs_on_user_id"
+
+  create_table "islands", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "languages", force: :cascade do |t|
     t.string   "name"

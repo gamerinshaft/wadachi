@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   has_one :notification, dependent: :destroy
   has_one :github, dependent: :destroy
   has_one :flag, dependent: :destroy
+  has_many :boards
+  has_many :comments
 
   def filtered_hash
     self.serializable_hash.except("github_token").symbolize_keys

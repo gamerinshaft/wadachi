@@ -61,9 +61,13 @@ ActiveRecord::Schema.define(version: 20150930045407) do
 
   create_table "repositories", force: :cascade do |t|
     t.string   "name"
+    t.boolean  "private"
+    t.string   "svn_url"
+    t.string   "size"
+    t.string   "description"
     t.integer  "github_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "repositories", ["github_id"], name: "index_repositories_on_github_id"

@@ -57,6 +57,7 @@ group :test, :development do
   gem 'rack-mini-profiler'
   gem 'xray-rails'
   gem 'rails-footnotes'
+  gem 'rails-erd'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

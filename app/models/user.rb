@@ -15,6 +15,13 @@ class User < ActiveRecord::Base
   has_many :participations
   has_many :participation_events, through: :participations, source: :event
 
+  # follow
+  has_many :relationships, :foreign_key => :follower_id, :dependent => :destroy
+  has_many :following_users, :through => :relationships, :source => :followed
+
+  # followed
+  has_many :reversere_relationships, :class_name => 'Relationship', :foreign_key => :followed_id, :dependent => :destroy # 関連名(:followerships)とクラス名(Friendship)が異なっているので、:class_nameでクラス名を指定。foreign_key は:friend_idを使う。
+  has_many :followed_users, :through => :reversere_relationships, :source => :follower # ":source => :user" の部分には、関連テーブルから先のモデルにアクセスするための(関連モデルから見た)関連名を入れる。ここでは、Friendshipモデルからその先のユーザ(user_idで繋がっている)に行くための関連名のシンボル :userを入れておく。
 
   def filtered_hash
     self.serializable_hash.except("github_token").symbolize_keys

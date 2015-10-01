@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151001092217) do
+ActiveRecord::Schema.define(version: 20151001094854) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -118,15 +118,15 @@ ActiveRecord::Schema.define(version: 20151001092217) do
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
-  create_table "relations", force: :cascade do |t|
-    t.integer  "event_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "relations", ["event_id"], name: "index_relations_on_event_id"
-  add_index "relations", ["user_id"], name: "index_relations_on_user_id"
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
   create_table "repositories", force: :cascade do |t|
     t.string   "name"

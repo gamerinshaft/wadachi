@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151001094854) do
+ActiveRecord::Schema.define(version: 20151001164723) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -108,6 +108,15 @@ ActiveRecord::Schema.define(version: 20151001094854) do
 
   add_index "participations", ["event_id"], name: "index_participations_on_event_id"
   add_index "participations", ["user_id"], name: "index_participations_on_user_id"
+
+  create_table "posts", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "profiles", force: :cascade do |t|
     t.text     "bio",        default: "初めまして、よろしくお願いします。"

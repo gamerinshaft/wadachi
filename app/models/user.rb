@@ -11,7 +11,10 @@ class User < ActiveRecord::Base
   has_one :flag, dependent: :destroy
   has_many :boards
   has_many :comments
-  has_many :participation_events, through: :participations
+  has_many :events
+  has_many :participations
+  has_many :participation_events, through: :participations, source: :event
+
 
   def filtered_hash
     self.serializable_hash.except("github_token").symbolize_keys

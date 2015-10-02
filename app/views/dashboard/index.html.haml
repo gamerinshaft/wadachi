@@ -75,6 +75,12 @@
 
         %input{id: "send", type: "button", value: "send"}
 
+        %div
+          - @islands.each do |island|
+            = island.name
+            = island.power
+            - island.areas.each do |area|
+              = area.name
         %ul#chat_area
 
 

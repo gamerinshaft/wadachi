@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :boards
   has_many :comments
   has_many :events
+  has_many :achievements
   has_many :participations
   has_many :participation_events, through: :participations, source: :event
 

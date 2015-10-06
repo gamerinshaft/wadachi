@@ -8,6 +8,7 @@ class Achievement < ActiveRecord::Base
 
     def update(user)
       language_column_count(user)
+      repository_create_count(user)
     end
 
     private
@@ -29,6 +30,23 @@ class Achievement < ActiveRecord::Base
         params[:status] = lang.count >=10000 ?  1 : 0
         create_or_update(user, name, params)
       end
+    end
+
+    def repository_create_count(user) #リポジトリを作った数
+      name = "プロジェクトメイカー初級"
+      params = {name: name, content: "リポジトリを一つ作る"}
+      params[:status] = user.github.repositories.count >=1 ?  1 : 0
+      create_or_update(user, name, params)
+
+      name = "プロジェクトメイカー中級"
+      params = {name: name, content: "リポジトリを五つ作る"}
+      params[:status] = user.github.repositories.count >=5 ?  1 : 0
+      create_or_update(user, name, params)
+
+      name = "プロジェクトメイカー上級"
+      params = {name: name, content: "リポジトリを十個作る"}
+      params[:status] = user.github.repositories.count >=10 ?  1 : 0
+      create_or_update(user, name, params)
     end
 
     def create_or_update(user, key, params)

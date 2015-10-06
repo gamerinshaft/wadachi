@@ -30,6 +30,7 @@ namespace :github do
           user.github.languages.create(name: lang, count: count)
         end
       end
+      Achievement.update(user)
       logger.info "-- update_github_status -- #{user.github.languages.to_yaml}"
       logger.info "#{Time.now} -- complete! -- "
       logger.info "------------------------------------------------------"

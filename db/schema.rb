@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20151002145600) do
   create_table "achievements", force: :cascade do |t|
     t.string   "name"
     t.text     "content"
+    t.integer  "percentage"
     t.integer  "status"
     t.integer  "user_id"
     t.datetime "created_at", null: false

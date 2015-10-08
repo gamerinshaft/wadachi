@@ -3,6 +3,7 @@ class CreateAchievements < ActiveRecord::Migration
     create_table :achievements do |t|
       t.string :name
       t.text :content
+      t.integer :percentage
       t.integer :status
       t.references :user, index: true, foreign_key: true
 

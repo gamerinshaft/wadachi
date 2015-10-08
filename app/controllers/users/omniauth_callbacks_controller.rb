@@ -24,6 +24,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       params = @languages.map{|lang, count| {name: lang, count: count}}
       @user.github.languages.create(params)
       Achievement.update(@user)
+      Pass.update(@user)
       session["devise.github_data"] = request.env["omniauth.auth"]
       sign_in_and_redirect @user, :event => :authentication
     else

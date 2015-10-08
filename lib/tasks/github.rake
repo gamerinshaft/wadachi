@@ -31,6 +31,7 @@ namespace :github do
         end
       end
       Achievement.update(user)
+      Pass.update(user)
       logger.info "-- update_github_status -- #{user.github.languages.to_yaml}"
       logger.info "#{Time.now} -- complete! -- "
       logger.info "------------------------------------------------------"

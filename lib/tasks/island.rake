@@ -21,6 +21,8 @@ namespace :island do
       else
         island = Island.create(name: lang, power: count)
         island.areas.create(name: "初めての#{lang}")
+        island.areas.create(name: "#{lang}の村")
+        island.areas.create(name: "#{lang}上級特区")
       end
     end
     logger = Logger.new('log/island.log')

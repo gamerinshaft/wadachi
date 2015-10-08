@@ -34,7 +34,25 @@
     .flex.flex-xs-auto
   .main.scroll-wrap
     .scroll
-      = react_component "Achievements", {prerender: true}
+      = react_component "Achievements", {achievements: current_user.achievements}
+      / %section.row#achievements
+      /   .flex-xs-auto
+      /   .achievements-wrap.flex-xs-18.flex-md-19.flex-lg-16
+      /     .achievements.frame.z1.panel
+      /       .title.tab
+      /         %i.fa.fa-cubes
+      /         Achievements
+      /       .row
+      /         - current_user.achievements.each do |achieve|
+      /           %article.achievement.flex-fluid-xs-33
+      /             .content
+      /               .badge
+      /               .gage{style: "width: #{achieve.percentage}%"}
+      /               %h1
+      /                 = achieve.name
+      /               .description
+      /                 = achieve.content
+      /   .flex-xs-auto
       %section.row#posts
         .flex-xs-auto
         .flex-xs-18.flex-md-19.flex-lg-16

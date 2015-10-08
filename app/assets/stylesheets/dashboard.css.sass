@@ -122,39 +122,11 @@
 .dashboard.index
   overflow: hidden
   background-color: #eee
-  header
-    background-color: #1e1e29
-    width: 100%
-    position: relative
-    .wadachi
-      display: inline-block
-      bottom: 0px
-      border-top: 1px solid #222
-      padding: 8px 16px
-      box-sizing: border-box
-      .logo
-        display: inline-block
-        height: 20px
-        width: 20px
-        box-sizing: border-box
-        vertical-align: middle
-        .img
-          background-image: url("logo_white.png")
-          background-size: cover
-          background-position: center
-          width: 100%
-          height: 100%
-          opacity: 0.9
-      .name
-        padding: 0px 8px
-        display: inline-block
-        vertical-align: middle
-        color: #ddd
-        font-size: 14px
   aside.sidebar
-    width: 240px
+    width: 250px
     height: 100%
-    background-color: #38335A
+    background-color: #3E3D46
+    box-shadow: -5px 0px 4px 0px #353232 inset
     display: inline-block
     position: absolute
     left: 0px
@@ -208,27 +180,56 @@
   & > section
     position: absolute
     height: 100%
-    left: 240px
+    left: 250px
     right: 0px
     display: inline-block
     &:before, &:after
       display: table
       content: ""
-    .main
-      background-color: #bfbfbf
+    header
       position: absolute
-      top: 0px
+      right: 0
+      left: 0
+      background-color: #1e1e29
+      width: 100%
+      .wadachi
+        display: inline-block
+        bottom: 0px
+        border-top: 1px solid #222
+        padding: 8px 16px
+        box-sizing: border-box
+        .logo
+          display: inline-block
+          height: 20px
+          width: 20px
+          box-sizing: border-box
+          vertical-align: middle
+          .img
+            background-image: url("logo_white.png")
+            background-size: cover
+            background-position: center
+            width: 100%
+            height: 100%
+            opacity: 0.9
+        .name
+          padding: 0px 8px
+          display: inline-block
+          vertical-align: middle
+          color: #ddd
+          font-size: 14px
+    .main
+      background-color: rgb(244,244,244)
+      position: absolute
+      top: 42px
       bottom: 0px
       right: 0px
       left: 0px
       section#posts
         padding-top: 16px
-        max-width: 600px
         box-sizing: border-box
         margin: 0 auto
         article.frame.post
           padding: 16px
-          background-color: #f1f1f1
           .avatar
             display: inline-block
             vertical-align: top

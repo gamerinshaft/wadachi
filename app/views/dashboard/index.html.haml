@@ -1,7 +1,14 @@
-%aside.sidebar.scroll-wrap
-  .scroll
+%header.row
+  .wadachi
     .logo
       .img
+    .name
+      Wadachi
+  .flex.flex-xs-auto
+%aside.sidebar.scroll-wrap
+  .scroll
+    .user
+      = image_tag current_user.avatar_url, class: "avatar"
     %ul
       %li
         = link_to destroy_user_session_path, class: "active signout" do
@@ -25,62 +32,62 @@
         = link_to destroy_user_session_path, class: "signout" do
           = fa_icon "power-off"
 %section
-  %header.row
-    .user
-      .user__icon
-        = image_tag("#{current_user.avatar_url}", class: "image")
-      .user__detail
-        .detail__nickname
-          = @user.nickname
-        .detail__name
-          = @user.name
-    .flex.flex-xs-auto
   .main.scroll-wrap
     .scroll
-      = @user.inspect
-      %section
-        = react_component "Dashboard", {user: @user.filtered_hash, profile: @user.profile, flag: @flag, notification: @user.notification }, {prerender: true}
-        .row
-          .flex.flex-fluid-xs-33
-            .frame.z1.setting
-              flagのセッティング
-        %h1 User一覧
-        = page_entries_info @users
-        .row
-          .flex.flex-fluid-xs-33
-            .frame.z1
-              %h1
-                Post
-              .content
-                コメントする
-          - @users.each do |user|
-            .flex.flex-fluid-xs-33
-              .frame.z1
-                = user.inspect
-          .flex.flex-fluid-xs-33
-            .frame.z1
-              %ul
-                - @repos.each do |repo|
-                  %li
-                    = repo.name
-        = paginate @users
+      %section#posts
+        %article.post.frame.z2
+          = image_tag current_user.avatar_url, class: "avatar"
+          .content
+            = current_user.name
+            = current_user.nickname
+            %div
+              お腹減ったなあ
+        / = @user.inspect
 
-        -if user_signed_in?
-          = current_user
-          = link_to "Sign out", destroy_user_session_path
-        -else
-          = link_to "Sign in with Github", user_omniauth_authorize_path(:github)
+        / = react_component "Dashboard", {user: @user.filtered_hash, profile: @user.profile, flag: @flag, notification: @user.notification }, {prerender: true}
+        / .row
+        /   .flex.flex-fluid-xs-33
+        /     .frame.z1.setting
+        /       flagのセッティング
+        / %h1 User一覧
+        / = page_entries_info @users
+        / .row
+        /   .flex.flex-fluid-xs-33
+        /     .frame.z1
+        /       %h1
+        /         Post
+        /       .content
+        /         コメントする
+        /   - @users.each do |user|
+        /     .flex.flex-fluid-xs-33
+        /       .frame.z1
+        /         = user.inspect
+        /   .flex.flex-fluid-xs-33
+        /     .frame.z1
+        /       %ul
+        /         - @repos.each do |repo|
+        /           %li
+        /             = repo.name
+        / = paginate @users
 
-        %input{id: "comment", type:"text"}
+        / -if user_signed_in?
+        /   = current_user
+        /   = link_to "Sign out", destroy_user_session_path
+        / -else
+        /   = link_to "Sign in with Github", user_omniauth_authorize_path(:github)
 
-        %input{id: "send", type: "button", value: "send"}
+        / %input{id: "comment", type:"text"}
 
-        %div
-          - @islands.each do |island|
-            = island.name
-            = island.power
-            - island.areas.each do |area|
-              = area.name
-        %ul#chat_area
+        / %input{id: "send", type: "button", value: "send"}
+
+        / %div
+        /   - @user.achievements.each do |achievement|
+        /     = achievement.inspect
+        /   - @islands.each do |island|
+        /     = island.name
+        /     = island.power
+        /     - island.areas.each do |area|
+        /       = area.name
+        / %ul#chat_area
 
 

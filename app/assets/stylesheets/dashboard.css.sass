@@ -120,25 +120,53 @@
       .value
         text-align: center
 .dashboard.index
-  background-color: #1E1E29
+  overflow: hidden
+  background-color: #eee
+  header
+    background-color: #1e1e29
+    width: 100%
+    position: relative
+    .wadachi
+      display: inline-block
+      bottom: 0px
+      border-top: 1px solid #222
+      padding: 8px 16px
+      box-sizing: border-box
+      .logo
+        display: inline-block
+        height: 20px
+        width: 20px
+        box-sizing: border-box
+        vertical-align: middle
+        .img
+          background-image: url("logo_white.png")
+          background-size: cover
+          background-position: center
+          width: 100%
+          height: 100%
+          opacity: 0.9
+      .name
+        padding: 0px 8px
+        display: inline-block
+        vertical-align: middle
+        color: #ddd
+        font-size: 14px
   aside.sidebar
-    width: 80px
+    width: 240px
     height: 100%
     background-color: #38335A
     display: inline-block
     position: absolute
     left: 0px
-    .logo
-      padding: 16px
-      height: 80px
-      box-sizing: border-box
-      .img
-        background-image: url("logo_white.png")
-        background-size: cover
-        background-position: center
-        width: 100%
-        height: 100%
-        opacity: 0.9
+    .user
+      overflow: hidden
+      height: 140px
+      .avatar
+        width: 60px
+        height: 60px
+        position: relative
+        display: inline-block
+        border-radius: 8px
     ul
       list-style: none
       padding: 0px
@@ -180,58 +208,32 @@
   & > section
     position: absolute
     height: 100%
-    left: 80px
+    left: 240px
     right: 0px
     display: inline-block
     &:before, &:after
       display: table
       content: ""
-    header
-      background-color: rgba(0,0,0,0.2)
-      width: 100%
-      position: relative
-      .user
-        display: inline-block
-        bottom: 0px
-        border-top: 1px solid #222
-        padding: 8px 16px
-        box-sizing: border-box
-        .user__icon
-          display: inline-block
-          vertical-align: middle
-          img
-            vertical-align: middle
-            border-radius: 50%
-            width: 50px
-            height: 50px
-        .user__detail
-          padding: 0px 8px
-          display: inline-block
-          vertical-align: middle
-          color: #ddd
-          .detail__nickname
-            font-size: 14px
-            &:before
-              display: inline-block
-              content: ""
-              background-color: #39AD2F
-              border-radius: 50%
-              width: 6px
-              height: 6px
-              border: solid 1px #ddd
-              box-shadow: 0px 0px 4px #A1A54C
-              margin-right: 8px
-          .detail__name
-            color: grey
-            font-size: 10px
-            margin-left: 20px
-            margin-top: 4px
     .main
+      background-color: #bfbfbf
       position: absolute
-      top: 67px
+      top: 0px
       bottom: 0px
-      section
+      right: 0px
+      left: 0px
+      section#posts
+        padding-top: 16px
+        max-width: 600px
         box-sizing: border-box
-        padding: 16px
-        .frame
+        margin: 0 auto
+        article.frame.post
+          padding: 16px
           background-color: #f1f1f1
+          .avatar
+            display: inline-block
+            vertical-align: top
+            width: 80px
+            height: 80px
+          .content
+            display: inline-block
+

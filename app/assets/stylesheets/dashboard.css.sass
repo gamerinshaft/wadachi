@@ -183,6 +183,9 @@
     left: 250px
     right: 0px
     display: inline-block
+    @media (max-width: 960px)
+      &
+        left: 0px
     &:before, &:after
       display: table
       content: ""
@@ -192,6 +195,7 @@
       left: 0
       background-color: #1e1e29
       width: 100%
+      z-index: 5
       .wadachi
         display: inline-block
         bottom: 0px

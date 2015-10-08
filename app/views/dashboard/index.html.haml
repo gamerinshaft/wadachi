@@ -25,7 +25,7 @@
         = link_to destroy_user_session_path, class: "signout" do
           = fa_icon "power-off"
 %section
-  %header.row
+  %header.row.z2
     .wadachi
       .logo
         .img
@@ -34,10 +34,11 @@
     .flex.flex-xs-auto
   .main.scroll-wrap
     .scroll
+      = react_component "Achievements", {prerender: true}
       %section.row#posts
         .flex-xs-auto
-        .flex-xs-18.flex-md-16
-          %article.post.frame.z2
+        .flex-xs-18.flex-md-19.flex-lg-16
+          %article.post.frame.z1
             = image_tag current_user.avatar_url, class: "avatar"
             .content
               = current_user.name

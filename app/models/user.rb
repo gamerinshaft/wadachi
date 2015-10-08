@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
   has_many :participations
   has_many :participation_events, through: :participations, source: :event
 
+  has_many :passes
+  has_many :pass_areas, through: :passes, source: :area
+
   # follow
   has_many :relationships, :foreign_key => :follower_id, :dependent => :destroy
   has_many :following_users, :through => :relationships, :source => :followed

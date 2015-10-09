@@ -23,6 +23,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       end
       params = @languages.map{|lang, count| {name: lang, count: count}}
       @user.github.languages.create(params)
+      Island.update()
       Achievement.update(@user)
       Pass.update(@user)
       session["devise.github_data"] = request.env["omniauth.auth"]

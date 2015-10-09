@@ -4,8 +4,8 @@ Achievements = React.createClass
   render: ->
     <section className="row" id="achievements">
       <div className="flex-xs-auto"></div>
-      <div className="achievements-wrap flex-xs-18 flex-md-19 flex-lg-16">
-        <div className="achievements frame z1 panel">
+      <div className="pane-wrap flex-xs-18 flex-md-19 flex-lg-16">
+        <div className="pane frame z1 panel">
           <div className="title tab">
             <i className="fa fa-cubes"></i>
             Achievements

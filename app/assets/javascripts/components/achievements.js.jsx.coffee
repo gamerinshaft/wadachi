@@ -9,6 +9,7 @@ Achievements = React.createClass
           <div className="title tab">
             <i className="fa fa-cubes"></i>
             Achievements
+            <div className="summary">あなたと関連が深い実績一覧</div>
           </div>
           <AchievementList achievements={@props.achievements}></AchievementList>
         </div>

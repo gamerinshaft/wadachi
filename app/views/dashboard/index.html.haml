@@ -35,7 +35,8 @@
   .main.scroll-wrap
     .scroll
       = react_component "Achievements", {achievements: current_user.achievements}
-      = react_component "Islands", {pass_islands: @pass_islands, pass_areas: current_user.pass_areas}
+      = react_component "Passport", {data: @pass_islands}
+      = react_component "Languages", {data: @languages}
       / %section.row#achievements
       /   .flex-xs-auto
       /   .achievements-wrap.flex-xs-18.flex-md-19.flex-lg-16

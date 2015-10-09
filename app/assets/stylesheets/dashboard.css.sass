@@ -1,5 +1,8 @@
 .frame.panel
   margin-top: 24px
+#languages
+  .pane
+    padding-bottom: 16px
 
 .pane-wrap
   .pane
@@ -13,6 +16,89 @@
       border-bottom: 1px solid #ddd
       i
         margin-right: 4px
+      .summary
+        font-size: 12px
+        color: #999
+    .language
+      .content
+        margin: 0px 16px
+        .name
+          color: #555
+          -webkit-font-smoothing: antialiased
+          font-size: 14px
+          margin: 4px 0px
+        .power
+          background-color: #E5E9FF
+          text-align: center
+          font-size: 10px
+    .island
+      position: relative
+      width: 100%
+      .content
+        margin: 8px
+        background-color: #f1f1f1
+        position: relative
+        padding: 8px 0px
+        color: white
+        -webkit-font-smoothing: antialiased
+        .name
+          padding: 0px 16px
+        ul, .name
+          margin: 0
+          z-index: 10
+          position: relative
+          li
+            list-style: none
+            position: relative
+          li:before
+            display: table
+            content: ""
+            width: 14px
+            height: 14px
+            border-bottom: solid 1px white
+            border-left: solid 1px white
+            left: -16px
+            position: absolute
+        &:after
+          display: block
+          content: ""
+          position: absolute
+          right: 0
+          left: 0
+          top: 0
+          bottom: 0
+          background-image: url("logo_white.png")
+          opacity: 0.2
+      &:nth-child(11n-1)
+        .content
+          background-color: #AB47BC
+      &:nth-child(11n-2)
+        .content
+          background-color: #EC407A
+      &:nth-child(11n-3)
+        .content
+          background-color: #EF5350
+      &:nth-child(11n-4)
+        .content
+          background-color: #42A5F5
+      &:nth-child(11n-5)
+        .content
+          background-color: #5C6BC0
+      &:nth-child(11n-6)
+        .content
+          background-color: #7E57C2
+      &:nth-child(11n-7)
+        .content
+          background-color: #26A69A
+      &:nth-child(11n-8)
+        .content
+          background-color: #29B6F6
+      &:nth-child(11n-9)
+        .content
+          background-color: #9CCC65
+      &:nth-child(11n-10)
+        .content
+          background-color: #FFA726
     .achievement
       position: relative
       width: 100%

@@ -2,12 +2,15 @@ class DashboardController < ApplicationController
   def index
     # @client = Octokit::Client.new access_token: current_user.github_token
     @user = current_user
+    filter = %i[name nickname uid avatar_url]
+    @users = User.select(filter)
 
     hash = Hash.new{|h,k| h[k]= []}
     @pass_islands = Hash.new{|h,k| h[k]= []}
     current_user.pass_areas.each do |area|
       hash[:islands].push area.island
     end
+
     @data = {}
     hash[:islands].uniq!
     hash[:islands].each do |island|
@@ -28,8 +31,6 @@ class DashboardController < ApplicationController
     @languages = @languages.to_a
 
     @flag = @user.flag
-    filter = %i[name email uid avatar_url]
-    @users = User.select(filter).page
   end
 
 end

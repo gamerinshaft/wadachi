@@ -14,7 +14,7 @@ class Island < ActiveRecord::Base
       end
       languages.each do |lang, count|
         if Island.exists?(name: lang)
-          Island.update(power: count)
+          Island.find_by(name: lang).update(power: count)
         else
           island = Island.create(name: lang, power: count)
           island.areas.create(name: "初めての#{lang}")

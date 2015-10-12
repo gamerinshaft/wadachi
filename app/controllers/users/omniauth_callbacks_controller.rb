@@ -3,6 +3,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_or_initialize_by(uid)
     if @user.new_record?
       @user.update_attributes(user_params)
+      @user.save
       @user.profile = Profile.new()
       @user.flag = Flag.new()
       @user.github = Github.new(token)
